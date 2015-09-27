@@ -1,0 +1,17 @@
+I) Purpose
+￼￼￼Adventure is a CLI game. The player has to explore in the castle with many levels and a lot of rooms. The task of the player is to find a room where the princess is prinsoned and take her leave the castle. There are many types of rooms, and each type of room has different types of exits. Note that there's a monster in one of the rooms, which the exact location is not able to be aware. But once the player meets a monster, the game is over...
+Requirement
+1. At least three different kinds of room;
+2. At least five rooms;
+3. The room with monster or princess is randomly set.
+
+II) My method
+Inheritance:
+Base class is room, which has only one exit (the one you are just stepping into). I call that exit downexit, which is a private variable of room class. I use downexit to store the address of the room that the player was before he came to this room. For example,
+if the play step into room x from room y, then x.downexit = &y. So the type of downexit is room*. And we have a member function virtual room* go_down(), which returns the value of downexit.
+Then I create a derived class room_A, which has a leftexit apart from downexit. Consequently, a member function virtual room* go_left() is also defined.
+Similarly, room_B, the derived class of room_A, is created by adding a rightexit and a virtual room* go_right().
+Finally, room_lobby, the derived class of room_B, is created by adding a upexit and a virtual room* go_up().
+
+Polymorphism:
+Besides virtual room* go_down(), virtual room* go_left(), virtual room* go_right(), virtual room* go_up(), there’s a virtual void showinfo() which cout the information of different classes (namely, different types of rooms).

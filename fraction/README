@@ -1,0 +1,20 @@
+I) Purpose
+Write a class presents a fraction number like 2/3. Functions below have to be implemented for this class:
+• default ctor
+• ctor takes two integers as parameters
+• copy ctor
+• arithmetical operators: + - * /
+• relational operators: < <= == != >= >
+• type cast to double
+• toString
+• inserter and extractor for streams
+
+II) My method
+a) Operator overloaded
+Peform +, -, ==, < on fractions by reduction of them to a common denominator
+Um, nothing special actually...
+b) toString
+Using stringstream ss to convert integer into strings. If the numerator of a object is 1
+and the denominator is four, then toString return a string “1/4”
+c) inserter and extractor for streams
+Use free function and declare is as friend of the class Nothing special too...

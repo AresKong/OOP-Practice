@@ -1,0 +1,20 @@
+I) Purpose
+The Personal Diary is a CLI (Command Line Interface) software, consists of three programs:
+• pdadd
+• pdlist [ ]
+• pdshow
+• pdremove
+The software stores diary in one data file, reads to the memory at begining of each program and stores back to the file at the end of process.
+Common classes and functions should be shared between programs. No interactive is permitted, so these programs are able to work together by the means of redirection or tee, are able to be used in a shell script.
+
+II) My method
+a) class pdbasic
+When the program begins, the content of the diary will be transformed into a map.The key of that map is the date of the diary, and of course, the value is the content pertaining to that date. For convenience, the format of the diary.txt is predefined. In this way, the content of every single diary is between its date and #.
+When the program ends, the map, which has probably been modified, will be transformed back into the diary.txt.
+Class pdbasic make the tranformations described above possible.
+pdbasic has a member variable std::map<int, string> dateToContent and two member functions
+void pdbasic::fileOpen(std::ifstream& in) stores the information of the diary into member variable dateToContent
+void pdbasic::fileSave(std::map<int, string> pdDateToContent, std::ofstream& out) stores the information of the map back into the diary.txt
+b) class pdlist, class pdshow, class pdadd, class pdremove
+These programs all manipulate data in the map instead of data in diary.txt
+Using key and value of the map, list, show, add and remove can be easily implemented

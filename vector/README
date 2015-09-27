@@ -1,0 +1,29 @@
+I) Purpose
+Given the declaration of class template Vector , write the bodies of the functions, and a main() to test all the facilities Vector provides.
+II) My method
+a) int Vector<T>::inflate(int addSize)
+First create a T* temp = new T[m_nSize+addSize], and copy the original vector to temp. Then m_nSize += addSize; m_pElements = temp;
+
+b) exception
+template <class T>
+T& Vector<T>::operator [](int index){
+	if (index >= m_nSize || index < 0)
+		throw IndexOutofBounds(index); return m_pElements[index];
+class IndexOutofBounds {
+public:
+	IndexOutofBounds(int e) : errorValue(e) { }
+	~IndexOutofBounds() { } void info() {
+	cerr << "Index " << errorValue << "out of range!"; }
+private:
+	int errorValue;
+};
+
+c) main
+In main(), first a vector of int is constructed by the constructor with argument
+Vector<int> v(10);
+And an empty vector of int is constructed by the default constructor
+Vector<int> empty;
+Next, set every v[i] equals to i ( i is between 0 and 9) and use the copy ctor
+empty = Vector<int>(v);
+Then, Using a loop to show the contents of the vector empty.
+Finally inflate the vector v, showing the size before and after the inflation and then show the contents of v after the inflation.

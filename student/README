@@ -1,0 +1,8 @@
+I) Purpose
+￼￼￼Write a CLI program that reads scores and name of students, and prints out a summary sheet.
+The user can input as many students as possible. One students can have as many courses as possible.
+One course consists the name of the course and the marks the student got.
+
+II) My method
+Creating a map<string, int > course in the class student, mapping the name of the course to the score of that course
+Creating a vector<student> stu in the main(), storing course name and score of various students. When typing in the information of students, “end” denotes that all the courses of a certain student is over, and “stop” denotes the end of typing.
